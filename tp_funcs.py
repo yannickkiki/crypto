@@ -41,10 +41,11 @@ def caesar_alphabet_decrypt_str(string,key):
     return str_decrypted
 
 def most_frequent_letter(message):
+    """find the most frequent letter in the message and return it"""
     return most_frequent_letters(message,1)[0]
 
 def most_frequent_letters(message,number_of_letters_to_return):
-    """find the most frequent letter in the message and return it"""
+    """find the most @number_of_letters_to_return frequent letter in the message and return it"""
     m=message.replace(" ","")
     return [w[0] for w in collections.Counter(list(m)).most_common(number_of_letters_to_return)]
 
@@ -93,7 +94,8 @@ def vigenere_decrypt_str(key,message_encrypted):
     return message_d
 
 def vigenere_find_key(message_encrypted,methods):
-    """Try to find vigenere key using methods-based considerations"""
+    """Try to find vigenere key using methods-based considerations.. In this
+    case we know the key size but not the key elements"""
     message_e=message_encrypted.replace(" ","")
     block_size=len(methods)
     key=list()
@@ -103,7 +105,8 @@ def vigenere_find_key(message_encrypted,methods):
     
 def vigenere_decrypt_message(message_encrypted,methods):
     """Try to decrypt message encrypted with vigenere encryption using 
-    methods-based considerations"""
+    methods-based considerations.. In this case we know the key size but 
+    not the key elements"""
     key=vigenere_find_key(message_encrypted,methods)
     return vigenere_decrypt_str(key,message_encrypted)
     
