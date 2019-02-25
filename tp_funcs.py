@@ -205,7 +205,7 @@ def power(number,result):
     return None
 
 def bezout_coefs(a,n):
-    """get bezout's coefficients of a and n such as ax+nk=gcd(a,n)"""
+    """get bezout's coefficients (x,k) of a and n such as ax+nk=gcd(a,n)"""
     if n==0: return (1,0)
     else:
         u,v=bezout_coefs(n,a%n)

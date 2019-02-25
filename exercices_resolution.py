@@ -203,3 +203,43 @@ classe=[["Gloria",0],["Junior",1],["Narcisse",1]]
 filles=[eleve[0] for eleve in classe if eleve[1]==0]
 nombre_de_filles=len(filles)
 """
+
+#---Devoir Crypto, RII5-EPAC, 02 Mars 2017, Cryptographie Partie 1---#
+#---->voir exercice00.py<------#
+
+#---Devoir Crypto, RII5-EPAC, 02 Mars 2017, Cryptographie Partie 2---#
+#n=9313
+"""
+#---Ma méthode (méthode directe)---#
+#vous remarquerez que m=m_1=m_2=1200 donc 12h00
+m_1=tf.rsa_decrypt(4166,n,5465)
+m_2=tf.rsa_decrypt(5094,n,7807)
+"""
+"""
+#---Methode du 1-)---#
+#1-a
+e1,e2=5465,7807
+e1_et_e2_premiers_entre_eux=math.gcd(e1,e2)==1
+#on a "True" donc c'est vérifié
+#1-b
+d1,d2=tf.bezout_coefs(e1,e2)
+#1-c.. vous trouverez
+m=1200
+"""
+"""
+#--Methode du 2-)---#
+#2-a
+a=sympy.ntheory.factorint(pow(137,2,n))
+#2-b
+b=sympy.ntheory.factorint(pow(149,2,n))
+#2-c:
+x,y=685,149
+#2-d
+p1,p2=math.gcd(n,x-y),math.gcd(n,x+y)
+#2-e
+phi=(p1-1)*(p2-1)
+c1=tf.cm_eq_solution(e1,1,phi)
+#2-f
+m1=4166
+m=pow(m1,c1,n)
+"""
